@@ -9,7 +9,7 @@ from controller.Folha import Folha
 from controller.Uol import Uol
 
 
-def app(vars_env):
+def app_temp(vars_env):
     time_loop = eval(vars_env['TEMPO_VERIFICACAO'])
     while True:
         if strtobool(vars_env['G1']):
