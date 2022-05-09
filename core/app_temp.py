@@ -43,4 +43,5 @@ def app_temp(vars_env):
             uol.run()
         
         print('Aguardando {} segundos...'.format(time_loop))
+        break
         sleep(time_loop)

@@ -10,10 +10,11 @@ rodando = False
 
 @app.get("/")
 def read_root():
-    global rodando
-    if rodando != True:
-        rodando = True
-        Thread(target=main).start()
+    # global rodando
+    # if rodando != True:
+    #     rodando = True
+    #     Thread(target=main).start()
+    main()
     return {"message": "Server is up and running!"}
 
 def main():
