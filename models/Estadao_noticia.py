@@ -36,13 +36,21 @@ class Estadao_noticia:
 
     def formatting(self, keys=False):
         if keys:
-            if self.imagem_link and self.body_text:
+            if self.imagem_link and self.body_text and self.credito:
                 return {'imagem_link': self.imagem_link,'link': self.link, 'titulo':self.titulo,'body_text': self.body_text, 'credito': self.credito, 'data': self.data}
-            elif self.imagem_link:
+            if self.imagem_link and self.body_text:
+                return {'imagem_link': self.imagem_link,'link': self.link, 'titulo':self.titulo,'body_text': self.body_text, 'data': self.data}
+            elif self.imagem_link and self.credito:
                 return {'imagem_link': self.imagem_link,'link': self.link, 'titulo':self.titulo, 'credito': self.credito, 'data': self.data}
-            elif self.body_text:
+            elif self.body_text and self.credito:
                 return {'link': self.link, 'titulo':self.titulo,'body_text': self.body_text, 'credito': self.credito, 'data': self.data}
-            else:
+            elif self.imagem_link:
+                return {'imagem_link': self.imagem_link,'link': self.link, 'titulo':self.titulo,  'data': self.data}
+            elif self.body_text:
+                return {'link': self.link, 'titulo':self.titulo,'body_text': self.body_text, 'data': self.data}
+            elif self.credito:
                 return {'link': self.link, 'titulo':self.titulo,'credito': self.credito, 'data': self.data}
+            else:
+                return {'link': self.link, 'titulo':self.titulo, 'data': self.data}
         else:
             return {self.link,self.titulo,self.body_text,self.credito,self.data,self.imagem_link}
