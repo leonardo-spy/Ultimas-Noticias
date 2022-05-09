@@ -8,7 +8,7 @@ client = None
 def init(vars_env):
     global client
     client = FaunaClient(
-        secret=vars_env['FAUNA_KEY'], domain='db.us.fauna.com')
+        secret='fnAEl9jw6MAAQPFRp1Q668GoCxhxT94StjwG-xpN', domain='db.us.fauna.com')
     indexes = client.query(q.paginate(q.indexes()))
     print(indexes)
     #create_collections()
