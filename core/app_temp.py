@@ -45,3 +45,28 @@ def app_temp(vars_env):
         print('Aguardando {} segundos...'.format(time_loop))
         break
         sleep(time_loop)
+
+def app_estadao():
+    estadao = Estadao()
+    estadao.run()
+
+def app_g1():
+    g1 = G1()
+    g1.run()
+
+def app_oglobo():
+    oglobo = Oglobo()
+    oglobo.run()
+
+def app_extra():
+    extra = Extra()
+    extra.run()
+
+def app_folha():
+    folha = Folha()
+    folha.run()
+
+def app_uol():
+    uol = Uol()
+    uol.run()
+
