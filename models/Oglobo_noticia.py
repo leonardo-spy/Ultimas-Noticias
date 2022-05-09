@@ -30,7 +30,8 @@ class Oglobo_noticia:
                 "oglobo"), {"data": {**self.formatting(keys=True)}}))
 
     def insert(self):
-        Thread(target=self.upload).start()
+        #Thread(target=self.upload).start()
+        self.upload()
 
     def formatting(self, keys=False):
         if keys:
