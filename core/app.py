@@ -14,6 +14,7 @@ app = FastAPI()
 # Dependency
 @app.on_event("startup")
 def on_startup():
+    app.mount("/files", StaticFiles(directory="templates/files"), name="files")
     FastAPICache.init(InMemoryBackend())
     vars_env = initialize()
     init(vars_env)
@@ -22,4 +23,4 @@ def on_startup():
 
 
 
-app.mount("/files", StaticFiles(directory="templates/files"), name="files")
+
