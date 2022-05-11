@@ -25,7 +25,7 @@ class Uol():
             body_figure = noticia_base.find("figure", recursive=False)
             if body_figure:
                 body_img = body_figure.find("img", recursive=True)
-                imagem_link = body_img['src'].strip()
+                imagem_link = body_img['data-src'].strip()
             else:
                 imagem_link = None
             content = noticia_base.find("div", recursive=False)

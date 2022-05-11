@@ -8,25 +8,59 @@ jobs:
     steps:
       - name: Call our API route Estadao
         run: |
-          curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/Estadao'
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/Estadao' \
+          --header 'Authorization: Bearer teste'
       - name: Call our API route Extra
         run: |
-          curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/Extra'
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/Extra' \
+          --header 'Authorization: Bearer teste'
       - name: Call our API route Folha
         run: |
-          curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/Folha'
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/Folha' \
+          --header 'Authorization: Bearer teste'
       - name: Call our API route G1
         run: |
-          curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/G1'
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/G1' \
+          --header 'Authorization: Bearer teste'
       - name: Call our API route OGlobo
         run: |
-          curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/OGlobo'
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/OGlobo' \
+          --header 'Authorization: Bearer teste'
       - name: Call our API route Uol
         run: |
+          curl --request POST \
+          --url 'https://ultimas-noticias.vercel.app/Uol' \
+          --header 'Authorization: Bearer teste'
+      - name: Call our Page index
+        run: |
           curl --request GET \
-          --url 'https://ultimas-noticias.vercel.app/Uol'
+          --url 'https://ultimas-noticias.vercel.app/'
+      - name: Call our Page estadao
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/estadao'
+      - name: Call our Page extra
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/extra'
+      - name: Call our Page folha
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/folha'
+      - name: Call our Page g1
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/g1'
+      - name: Call our Page oglobo
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/oglobo'
+      - name: Call our Page uol
+        run: |
+          curl --request GET \
+          --url 'https://ultimas-noticias.vercel.app/uol'

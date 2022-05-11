@@ -1,0 +1,186 @@
+{% extends "layouts/master.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center">
+  {% for noticia in noticias %}  
+  {% if noticia.portal == 'estadao' %}
+    <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link  %}
+          <img src="{{noticia.imagem_link}}" alt="Estadão" class="w-16 h-16 rounded-md"/>     
+          {% endif %}                 
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">Estadão</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  {% if noticia.credito  %}
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.credito}}</a>
+                  {% endif %} 
+                </li>                      
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.data}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.titulo}}</h5>
+              {% if noticia.body_text  %}
+              <p class="mt-1 text-xs font-medium text-gray-300">{{noticia.body_text}}</p>
+              {% endif %} 
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% if noticia.portal == 'extra' %}                     
+      <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link  %}   
+          <img src="{{noticia.imagem_link}}" alt="Extra" class="w-16 h-16 rounded-md"/>  
+          {% endif %}                    
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">Extra</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.tipo_materia}}</a>
+                </li>                      
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.horario}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.body_title}}</h5>
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% if noticia.portal == 'folha' %}
+      <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link %}
+          <img src="{{noticia.imagem_link}}" alt="Folha" class="w-16 h-16 rounded-md"/>
+          {% endif %}                 
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">Folha</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.credito}}</a>
+                </li>                      
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.data}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.titulo}}</h5>
+              <p class="mt-1 text-xs font-medium text-gray-300">{{noticia.body_text}}</p>
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% if noticia.portal == 'g1' %}
+      <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link %}
+          <img src="{{noticia.imagem_link}}" alt="G1" class="w-16 h-16 rounded-md"/> 
+          {% endif %}                   
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">G1</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.local}}</a>
+                </li>                      
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.horario}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.titulo}}</h5>
+              <p class="mt-1 text-xs font-medium text-gray-300">{{noticia.body_text}}</p>
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% if noticia.portal == 'oglobo' %}
+      <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link  %}
+          <img src="{{noticia.imagem_link}}" alt="O Globo" class="w-16 h-16 rounded-md"/>   
+          {% endif %}                   
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">O Globo</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.tipo_materia}}</a>
+                </li>                      
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.body_text}}</h5>
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% if noticia.portal == 'uol' %}
+      <article class="p-4 bg-gray-800 border border-gray-700 rounded-xl">
+        <div class="flex items-center">
+          {% if noticia.imagem_link  %}
+          <img src="{{noticia.imagem_link}}" alt="Uol" class="w-16 h-16 rounded-md"/> 
+          {% endif %}                  
+          <div class="ml-3">
+            <h5 class="text-lg font-medium text-white">Uol</h5>
+            <div class="flow-root">
+              <ul class="flex flex-wrap -m-1">
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.tipo_materia}}</a>
+                </li>                      
+                <li class="p-1 leading-none">
+                  <a href="{{noticia.link}}" target="_blank" class="text-xs font-medium text-gray-300">{{noticia.data}}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul class="mt-4 space-y-2">
+          <li>
+            <a href="{{noticia.link}}" target="_blank" class="block h-fit p-4 border border-gray-700 rounded-lg hover:border-pink-600">
+              <h5 class="font-medium text-white">{{noticia.body_text}}</h5>
+            </a>
+          </li>
+        </ul>
+      </article>
+      {% endif %}
+      {% endfor %}
+    </div>
+{% endblock content %}

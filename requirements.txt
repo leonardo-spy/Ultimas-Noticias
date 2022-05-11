@@ -3,3 +3,4 @@ python-dotenv
 faunadb
 fastapi
 lxml
+fastapi-cache2
