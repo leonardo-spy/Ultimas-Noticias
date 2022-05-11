@@ -7,7 +7,7 @@ from fastapi_cache.backends.inmemory import InMemoryBackend
 
 from config.config import initialize
 from db.fauna import init
-from core.route import graph_route
+
 
 app = FastAPI()
 
@@ -17,7 +17,9 @@ def on_startup():
     FastAPICache.init(InMemoryBackend())
     vars_env = initialize()
     init(vars_env)
+    from core.route import graph_route
+    app.include_router(graph_route)
 
-app.include_router(graph_route)
+
 
 app.mount("/files", StaticFiles(directory="templates/files"), name="files")
