@@ -10,17 +10,16 @@ from db.fauna import init
 
 
 app = FastAPI()
+FastAPICache.init(InMemoryBackend())
+from core.route import graph_route
 
 # Dependency
 @app.on_event("startup")
 def on_startup():
-    app.mount("/files", StaticFiles(directory="templates/files"), name="files")
-    FastAPICache.init(InMemoryBackend())
+    #FastAPICache.init(InMemoryBackend())
     vars_env = initialize()
     init(vars_env)
-    from core.route import graph_route
-    app.include_router(graph_route)
 
+app.include_router(graph_route)
 
-
-
+app.mount("/files", StaticFiles(directory="templates/files"), name="files")

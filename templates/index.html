@@ -1,5 +1,6 @@
 {% extends "layouts/master.html" %}
-{% block title %}Inicio{% endblock %}
+
+{% block title %}{% if request.path == '/'  %}Início{% endif %}{% if request.path == '/estadao'  %}Estadão{% endif %}{% if request.path == '/extra'  %}Extra{% endif %}{% if request.path == '/folha'  %}Folha{% endif %}{% if request.path == '/g1'  %}G1{% endif %}{% if request.path == '/oglobo'  %}O Globo{% endif %}{% if request.path == '/uol'  %}Uol{% endif %}{% endblock %}
 {% block content %}
 <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-center">
   {% for noticia in noticias %}  
