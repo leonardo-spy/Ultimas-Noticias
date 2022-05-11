@@ -4,3 +4,4 @@ faunadb
 fastapi
 lxml
 fastapi-cache2
+Jinja2
