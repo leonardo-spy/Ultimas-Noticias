@@ -12,13 +12,14 @@ from db.fauna import init
 app = FastAPI()
 FastAPICache.init(InMemoryBackend())
 from core.route import graph_route
+init(None)
 
 # Dependency
 @app.on_event("startup")
 def on_startup():
     #FastAPICache.init(InMemoryBackend())
     vars_env = initialize()
-    init(vars_env)
+    #init(vars_env)
 
 app.include_router(graph_route)
 
